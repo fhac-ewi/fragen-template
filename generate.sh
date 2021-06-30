@@ -15,7 +15,7 @@ do
     find "$D" -name "*.md" -maxdepth 1 -type f | sort -n | while read -r F
     do
         echo "Appending file $F"
-        echo "Fragen aus der Datei [$(basename "$F" .md)](./$(echo "$F" | sed -e 's/(/%28/g' -e 's/)/%29/g'))."  >> Fragenkatalog.md
+        echo "Fragen aus der Datei [$(basename "$F" .md)]($(echo "$F" | sed -e 's/(/%28/g' -e 's/)/%29/g'))."  >> Fragenkatalog.md
         escapedFolder=$(echo "$D" | sed -e 's/(/%28/g' -e 's/)/%29/g')
         cat "$F" | sed -e '0,/#/s/^##*.*/<details><summary>&<\/summary>\n/' \
                 -e 's/^##*.*/<\/details>\n<details><summary>&<\/summary>\n/' \
