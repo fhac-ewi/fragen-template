@@ -24,3 +24,5 @@ do
                 -e '$a<\/td><\/tr><\/table>\n</details>\n' >> Fragenkatalog.md
     done
 done
+
+echo "\n\nGeneriert am $(LANG=de_DE date)" >> Fragenkatalog.md
